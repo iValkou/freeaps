@@ -50,9 +50,9 @@ extension AddTempTarget {
 
                 Section {
                     Button { viewModel.enact() }
-                    label: { Text("Enact") }
+                    label: { Text("Enact temp target") }
                     Button { viewModel.cancel() }
-                    label: { Text("Cancel Temp Target") }
+                    label: { Text("Cancel temp target") }
                 }
             }
             .popover(isPresented: $isPromtPresented) {
@@ -69,7 +69,7 @@ extension AddTempTarget {
                     }
                 }
             }
-            .navigationTitle("Enact Temp Target")
+            .navigationTitle("Enact temp target")
             .navigationBarTitleDisplayMode(.automatic)
             .navigationBarItems(leading: Button("Close", action: viewModel.hideModal))
         }
@@ -114,8 +114,16 @@ extension AddTempTarget {
                     .onTapGesture {
                         removeAlert = Alert(
                             title: Text("A you sure?"),
-                            message: Text("Delete preset \"\(preset.displayName)\""),
-                            primaryButton: .destructive(Text("Delete"), action: { viewModel.removePreset(id: preset.id) }),
+                            message: Text(
+                                String(
+                                    format: NSLocalizedString("Delete preset %@", comment: "Delete preset %@"),
+                                    preset.displayName
+                                )
+                            ),
+                            primaryButton: .destructive(
+                                Text("Delete"),
+                                action: { viewModel.removePreset(id: preset.id) }
+                            ),
                             secondaryButton: .cancel()
                         )
                         isRemoveAlertPresented = true

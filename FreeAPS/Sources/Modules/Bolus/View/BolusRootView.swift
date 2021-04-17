@@ -43,7 +43,7 @@ extension Bolus {
                 if !viewModel.waitForSuggestion {
                     Section(header: Text("Bolus")) {
                         HStack {
-                            Text("Amount")
+                            Text("Amount Bolus")
                             Spacer()
                             DecimalTextField(
                                 "0",
@@ -65,12 +65,13 @@ extension Bolus {
                             label: { Text("Continue without bolus") }
                         } else {
                             Button { viewModel.addWithoutBolus() }
-                            label: { Text("Add insulin without actually bolusing") }
+                            label: {
+                                Text("Add insulin without actually bolusing") }
                         }
                     }
                 }
             }
-            .navigationTitle("Enact Bolus")
+            .navigationTitle("Enact Bolus Title")
             .navigationBarTitleDisplayMode(.automatic)
             .navigationBarItems(leading: Button("Close", action: viewModel.hideModal))
         }

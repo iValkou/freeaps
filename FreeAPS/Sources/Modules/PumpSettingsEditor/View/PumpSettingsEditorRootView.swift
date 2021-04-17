@@ -15,11 +15,19 @@ extension PumpSettingsEditor {
                 Section(header: Text("Delivery limits")) {
                     HStack {
                         Text("Max Basal")
-                        DecimalTextField("hours", value: $viewModel.maxBasal, formatter: formatter)
+                        DecimalTextField(
+                            "hours",
+                            value: $viewModel.maxBasal,
+                            formatter: formatter
+                        )
                     }
                     HStack {
                         Text("Max Bolus")
-                        DecimalTextField("U/hr", value: $viewModel.maxBolus, formatter: formatter)
+                        DecimalTextField(
+                            "U/hr",
+                            value: $viewModel.maxBolus,
+                            formatter: formatter
+                        )
                     }
                 }
 
@@ -37,7 +45,10 @@ extension PumpSettingsEditor {
                         }
                         Button { viewModel.save() }
                         label: {
-                            Text(viewModel.syncInProgress ? "Saving..." : "Save on Pump")
+                            Text(
+                                viewModel
+                                    .syncInProgress ? "Saving..." : "Save on Pump"
+                            )
                         }
                         .disabled(viewModel.syncInProgress)
                     }

@@ -20,13 +20,20 @@ extension Settings {
                 }
 
                 Section(header: Text("Configuration")) {
-                    Text("Preferences").chevronCell().navigationLink(to: .preferencesEditor, from: self)
-                    Text("Pump Settings").chevronCell().navigationLink(to: .pumpSettingsEditor, from: self)
-                    Text("Basal Profile").chevronCell().navigationLink(to: .basalProfileEditor, from: self)
-                    Text("Insulin Sensitivities").chevronCell().navigationLink(to: .isfEditor, from: self)
-                    Text("Carb Ratios").chevronCell().navigationLink(to: .crEditor, from: self)
-                    Text("Target Ranges").chevronCell().navigationLink(to: .targetsEditor, from: self)
-                    Text("Autotune").chevronCell().navigationLink(to: .autotuneConfig, from: self)
+                    Text("Preferences Conf").chevronCell()
+                        .navigationLink(to: .preferencesEditor, from: self)
+                    Text("Pump Settings Conf").chevronCell()
+                        .navigationLink(to: .pumpSettingsEditor, from: self)
+                    Text("Basal Profile Conf").chevronCell()
+                        .navigationLink(to: .basalProfileEditor, from: self)
+                    Text("Insulin Sensitivities Conf").chevronCell()
+                        .navigationLink(to: .isfEditor, from: self)
+                    Text("Carb Ratios Conf").chevronCell()
+                        .navigationLink(to: .crEditor, from: self)
+                    Text("Target Ranges Conf").chevronCell()
+                        .navigationLink(to: .targetsEditor, from: self)
+                    Text("Autotune Conf").chevronCell()
+                        .navigationLink(to: .autotuneConfig, from: self)
                 }
 
                 if viewModel.debugOptions {

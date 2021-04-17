@@ -15,7 +15,7 @@ extension AddCarbs {
             Form {
                 Section {
                     HStack {
-                        Text("Amount")
+                        Text("Amount Carbs")
                         Spacer()
                         DecimalTextField("0", value: $viewModel.carbs, formatter: formatter, autofocus: true, cleanInput: true)
                         Text("grams").foregroundColor(.secondary)
@@ -25,10 +25,10 @@ extension AddCarbs {
 
                 Section {
                     Button { viewModel.add() }
-                    label: { Text("Add") }
+                    label: { Text("Add Carbs") }
                 }
             }
-            .navigationTitle("Add Carbs")
+            .navigationTitle("Add Carbs Title")
             .navigationBarTitleDisplayMode(.automatic)
             .navigationBarItems(leading: Button("Close", action: viewModel.hideModal))
         }

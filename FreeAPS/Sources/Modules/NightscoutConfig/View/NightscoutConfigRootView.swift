@@ -38,7 +38,8 @@ extension NightscoutConfig {
                 Section {
                     Button("Connect") { viewModel.connect() }
                         .disabled(viewModel.url.isEmpty || viewModel.connecting)
-                    Button("Delete") { viewModel.delete() }.foregroundColor(.red).disabled(viewModel.connecting)
+                    Button("Delete") { viewModel.delete() }.foregroundColor(.red)
+                        .disabled(viewModel.connecting)
                 }
 
                 Section {
@@ -46,7 +47,10 @@ extension NightscoutConfig {
                 }
 
                 Section(header: Text("Local glucose source")) {
-                    Toggle("Use local glucose server", isOn: $viewModel.useLocalSource)
+                    Toggle(
+                        "Use local glucose server",
+                        isOn: $viewModel.useLocalSource
+                    )
                     HStack {
                         Text("Port")
                         DecimalTextField("", value: $viewModel.localPort, formatter: portFormater)

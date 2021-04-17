@@ -31,7 +31,10 @@ extension BasalProfileEditor {
                         }
                         Button { viewModel.save() }
                         label: {
-                            Text(viewModel.syncInProgress ? "Saving..." : "Save on Pump")
+                            Text(
+                                viewModel
+                                    .syncInProgress ? "Saving..." : "Save on Pump"
+                            )
                         }
                         .disabled(viewModel.syncInProgress || viewModel.items.isEmpty)
                     }
